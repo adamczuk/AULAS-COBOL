@@ -15,13 +15,13 @@
        WORKING-STORAGE SECTION.
 
        77 NOME-ALUNO       PIC A(15).
-       77 NOTA1            PIC 9V9.
-       77 NOTA2            PIC 9V9.
-       77 NOTA3            PIC 9V9.
+       77 NOTA1            PIC 9V99.
+       77 NOTA2            PIC 9V99.
+       77 NOTA3            PIC 9V99.
        77 QTDE-FALTAS      PIC 99.
-       77 MEDIA-NOTAS      PIC 99V9.
+       77 MEDIA-NOTAS      PIC 99V99.
 
-       77 VAR-AUX          PIC 9V9.
+       77 VAR-AUX          PIC 9V99.
        PROCEDURE DIVISION.
        MAIN-PROCEDURE.
 
@@ -31,9 +31,11 @@
 
            PERFORM GET-NOTAS
            MOVE VAR-AUX TO NOTA1
+           DISPLAY NOTA1
 
            PERFORM GET-NOTAS
            MOVE VAR-AUX TO NOTA2
+           DISPLAY NOTA2
 
            DISPLAY "INSIRA SUA QUANTIDADE DE FALTAS "
            ACCEPT QTDE-FALTAS
@@ -80,7 +82,8 @@
            DISPLAY "INSIRA SUA NOTA "
            ACCEPT VAR-AUX
 
-           IF VAR-AUX IS GREATER THAN 5
+
+           IF VAR-AUX IS GREATER THAN 5,0
                DISPLAY "NOTA NAO PODE SER MAIOR QUE 5,0"
                PERFORM GET-NOTAS
            END-IF
